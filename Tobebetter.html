@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <title>To Be Better | Elevate Your Life</title>
+    <style>
+        :root { --yellow: #FFD700; --white: #FFFFFF; --dark: #1A1A1A; --gray: #f4f4f4; }
+        * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
+        body { font-family: 'Poppins', sans-serif; background: var(--white); color: var(--dark); }
+        
+        /* Styling Hamburger Menu */
+.menu-toggle { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
+.bar { width: 25px; height: 3px; background-color: var(--dark); transition: 0.3s; }
+
+/* Responsif: Menampilkan menu hamburger hanya di HP/Tablet */
+/* Update CSS untuk Navigasi & Hamburger */
+.nav-links { 
+    position: fixed; right: -100%; top: 0; width: 100%; height: 100vh; 
+    background: var(--dark); display: flex; flex-direction: column; 
+    align-items: center; justify-content: center; gap: 40px; transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.nav-links.active { right: 0; }
+
+.nav-links a { 
+    color: var(--white); font-size: 2rem; font-weight: 800; 
+    transition: all 0.3s ease; text-decoration: none;
+}
+
+/* Styling Hamburger Menu */
+.menu-toggle { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
+.bar { width: 25px; height: 3px; background-color: var(--dark); transition: 0.3s; }
+
+/* Responsif: Menampilkan menu hamburger hanya di HP/Tablet */
+.nav-links { 
+    position: fixed; right: -100%; top: 0; width: 100%; height: 100vh; 
+    background: var(--dark); display: flex; flex-direction: column; 
+    align-items: center; justify-content: center; gap: 40px; transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.nav-links.active { right: 0; }
+
+.nav-links a { 
+    color: var(--white); font-size: 2rem; font-weight: 800; 
+    transition: all 0.3s ease; text-decoration: none;
+}
+
+/* Styling Hamburger Menu */
+.menu-toggle { display: none; flex-direction: column; cursor: pointer; gap: 5px; }
+.bar { width: 25px; height: 3px; background-color: var(--dark); transition: 0.3s; }
+
+/* Responsif: Menampilkan menu hamburger hanya di HP/Tablet */
+@media (max-width: 768px) {
+    .menu-toggle { display: flex; }
+    .nav-links { 
+        position: fixed; right: -100%; top: 70px; width: 100%; height: 100vh; 
+        background: rgba(255, 255, 255, 0.98); flex-direction: column; 
+        align-items: center; justify-content: center; gap: 30px; transition: 0.5s;
+    }
+    .nav-links.active { right: 0; }
+}
+
+
+/* Animasi Perbesaran & Warna saat Hover/Klik */
+.nav-links a:hover { color: var(--yellow); transform: scale(1.5); }
+.nav-links a:active { transform: scale(1.2); color: var(--white); }
+
+/* Animasi Hamburger itu sendiri agar lebih hidup */
+.menu-toggle.active .bar:nth-child(1) { transform: rotate(-45deg) translate(-5px, 6px); }
+.menu-toggle.active .bar:nth-child(2) { opacity: 0; }
+.menu-toggle.active .bar:nth-child(3) { transform: rotate(45deg) translate(-5px, -6px); }
+
+
+
+        /* Navigation */
+        /* Update Navigasi */
+nav { position: fixed; top: 0; width: 100%; padding: 1.5rem 5%; display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.95); z-index: 1000; backdrop-filter: blur(10px); transition: 0.4s; }
+.logo-nav { font-weight: 800; font-size: 1.5rem; cursor: pointer; color: var(--dark); transition: 0.3s; }
+.logo-nav:hover { font-family: 'Playfair Display', serif; color: var(--yellow); transform: scale(1.05); }
+.nav-links a { margin-left: 25px; text-decoration: none; color: var(--dark); font-weight: 600; transition: 0.3s; position: relative; }
+.nav-links a::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 0; background-color: var(--yellow); transition: 0.3s; }
+.nav-links a:hover::after { width: 100%; }
+
+        .nav-links a { margin-left: 20px; text-decoration: none; color: var(--dark); font-weight: 600; }
+
+        /* Hero */
+        .hero { height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+        .logo-img { width: 250px; animation: pulse 3s infinite; }
+        @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.05); } 100% { transform: scale(1); } }
+
+        /* Sections */
+        section { padding: 80px 10%; }
+        .form-container { max-width: 600px; margin: auto; background: var(--gray); padding: 30px; border-radius: 15px; }
+        input, textarea { width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 8px; }
+        button { background: var(--dark); color: white; padding: 12px 25px; border: none; border-radius: 8px; cursor: pointer; }
+        
+        /* Footer */
+        footer { text-align: center; padding: 40px; background: var(--dark); color: white; }
+    </style>
+</head>
+<body>
+
+    <!-- Ganti <nav> lama dengan ini -->
+<nav>
+    <div class="logo-nav">ToBeBetter✨</div>
+    
+    <!-- Tombol Hamburger -->
+    <div class="menu-toggle" onclick="toggleMenu()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+
+    <!-- Menu Links -->
+    <div class="nav-links" id="navLinks">
+        <a href="#home" onclick="toggleMenu()">Home</a>
+        <a href="#artikel" onclick="toggleMenu()">Artikel</a>
+        <a href="#kartu" onclick="toggleMenu()">Motivasi</a>
+        <a href="#produk" onclick="toggleMenu()">E-book</a>
+        <a href="#kontak" onclick="toggleMenu()">Kontak</a>
+    </div>
+</nav>
+
+
+
+    <section id="home" class="hero">
+        <h1 class="j"style="font-style:sans-serif">WELCOME TO</h1>
+        <img src="To2/too.png" alt="Logo To Be Better" class="logo-img">
+    </section>
+    
+    <section id="about" style="background: var(--gray);">
+    <div style="max-width: 800px; margin: auto; text-align: center;">
+        <h2 style="font-family: 'Playfair Display', serif; margin-bottom: 20px; font-weight: 800;">Mengapa To Be Better Ada?</h2>
+        <p style="font-size: 1.2rem; line-height: 1.8; color: #555;">
+            <strong>To Be Better</strong> lahir dari keyakinan bahwa setiap individu memiliki potensi tak terbatas yang seringkali terpendam oleh rasa takut dan keraguan. 
+            To Be Better hadir untuk menjadi teman seperjalanan dalam pengembangan diri kamu. kita percaya bahwa perubahan besar tidak datang dari lompatan instan, melainkan dari konsistensi langkah-langkah kecil setiap hari.
+        </p>
+        <p style="margin-top: 20px; font-size: 1.2rem; line-height: 1.8; color: #555;">
+            Karena pada akhirnya, menjadi versi terbaik dari dirimu sendiri adalah pencapaian tertinggi.
+        </p>
+    </div>
+</section>
+
+
+    <!-- Halaman Materi -->
+<section id="artikel">
+    <h2 style="font-family: 'Playfair Display', serif;">Artikel</h2>
+    <!-- Kontainer ini akan diisi otomatis oleh database -->
+    <div id="materi-container" style="display: flex; flex-direction: column; gap: 20px;">
+        <p>Memuat artikel...</p>
+    </div>
+</section>
+
+        <!-- Fitur Game Kartu Motivasi -->
+<section id="kartu" style="background: #f9f9f9; padding: 60px 20px;">
+    <h2 style="font-family: 'Playfair Display', serif; text-align: center; margin-bottom: 2rem;">Inspirasi Hari Ini</h2>
+    
+    <div id="card-wrapper" style="perspective: 1000px; width: 320px; height: 400px; margin: auto; cursor: pointer;">
+        <div id="quoteCard" style="width: 100%; height: 100%; position: relative; transition: transform 0.8s; transform-style: preserve-3d; border-radius: 24px; box-shadow: 0 15px 35px rgba(0,0,0,0.15);">
+            
+            <div id="front" style="position: absolute; width: 100%; height: 100%; backface-visibility: hidden; background: #FFD700; border-radius: 24px; display: flex; align-items: center; justify-content: center; padding: 30px; text-align: center;">
+                <p style="font-weight: 600; font-size: 1.2rem;">Klik untuk membuka inspirasi...</p>
+            </div>
+
+            <div id="back" style="position: absolute; width: 100%; height: 100%; backface-visibility: hidden; transform: rotateY(180deg); background: white; border-radius: 24px; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 30px; text-align: center; border: 1px solid #eee;">
+                <div id="quoteContent">
+                    <p id="teks" style="font-size: 1.2rem; font-style: italic; margin-bottom: 15px;">"..."</p>
+                    <small id="sumber" style="font-weight: bold; color: #666;"></small>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+    <!-- Fitur Promosi E-book -->
+    <!-- Bagian Produk Baru -->
+<section id="produk" class="product-section">
+    <div class="product-wrapper">
+        <div class="product-image">
+            <div class="product-image">
+    <!-- Ganti URL_GAMBAR_EBOOK_MU dengan link gambar asli e-book kamu -->
+    <img src="Bicara/1000020135" style="width: 100%; max-width: 300px; border-radius: 10px; display: block;">
+    <span class="number-bg1">01</span>
+</div>
+
+        </div>
+        <div class="product-info">
+            <h2 class="book-title">BICARA DENGAN DIRI SENDIRI</h2>
+            <blockquote class="book-quote">
+                "Suara di kepalamu bisa jadi pendorong atau penghalang. Kabar baiknya? Kamu punya kendali untuk memilih siapa yang kamu dengarkan. Jadikan pikiranmu tempat yang aman, bukan medan perang."
+            </blockquote>
+            <p class="book-desc">
+                Ini bukan sekadar buku panduan biasa. Ini adalah perjalanan jujur tentang bagaimana kita bisa berdamai dengan masa lalu dan membangun versi diri yang lebih tangguh...
+            </p>
+            <!-- Ubah tombol yang lama menjadi kode ini -->
+<a href="https://lynk.id/halidahdiyat/jq8omoqy6d59" target="_blank" style="text-decoration: none;">
+    <button class="buy-btn">Get the Book →</button>
+</a>
+
+        </div>
+    </div>
+</section>
+
+    <!-- Bagian Produk Baru -->
+<section id="produk" class="product-section">
+    <div class="product-wrapper">
+        <div class="product-image">
+            <div class="product-image">
+    <!-- Ganti URL_GAMBAR_EBOOK_MU dengan link gambar asli e-book kamu -->
+    <img src="Bahagia/1000020133" style="width: 100%; max-width: 300px; border-radius: 10px; display: block;">
+    <span class="number-bg2">02</span>
+</div>
+
+        </div>
+        <div class="product-info">
+            <h2 class="book-title">BUKAN SEMPURNA, TAPI BAHAGIA</h2>
+            <blockquote class="book-quote">
+                "bahagia itu bukan tentang menjadi sempurna, tapi tentang menjadi utuh dengan segala kelebihan dan kekurangan yang kita miliki."
+            </blockquote>
+            <p class="book-desc">
+                Banyak orang mencari kebahagiaan dengan bersusah payah dan tertatih, seolah kebahagiaan adalah hal yang susah digapai, padahal cara kita saja yang salah. kebahagiaan itu sempat mengejar kita, namun kita malah berlari terus menjauh. Buku ini bukan sebuah solusi, tapi hanya sebuah teman yang menemanimu dikala kamu tak tahu bagaimana caranya bahagia...
+            </p>
+            <!-- Ubah tombol yang lama menjadi kode ini -->
+<a href="https://lynk.id/halidahdiyat/6op6168v4391" target="_blank" style="text-decoration: none;">
+    <button class="buy-btn">Get the Book →</button>
+</a>
+
+        </div>
+    </div>
+</section>
+
+<style>
+  #about h2::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: var(--yellow);
+    margin: 15px auto;
+}
+
+.j{
+    font-family: 'Playfair Display', serif; /* Font elegan */
+    font-size: 4rem;                    /* Ukuran besar */
+    font-weight: 700;                     /* Tebal */
+    color: var(--dark);                   /* Warna gelap */
+    text-transform: uppercase;            /* Membuat huruf menjadi kapital semua */
+    letter-spacing: 2px;                  /* Memberi jarak antar huruf agar terkesan mewah */
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+
+    .product-section { padding: 100px 10%; background: var(--white); }
+    .product-wrapper { display: flex; flex-wrap: wrap; gap: 50px; align-items: center; }
+    .product-image { flex: 1; min-width: 300px; position: relative; }
+    .book-cover-placeholder { width: 100%; max-width: 300px; height: 450px; background: var(--dark); border-radius: 10px; box-shadow: 20px 20px 0px var(--yellow); }
+    .number-bg1 { position: absolute; top: -10px; right: 0; font-size: 3rem; font-weight: 600; color: #ffffff; z-index: 3; }
+    .number-bg2 { position: absolute; top: -10px; right: 0; font-size: 3rem; font-weight: 600; color: #ffffff; z-index: 3; }
+    .product-info { flex: 1; min-width: 300px; }
+    .book-title { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 800; margin-bottom: 20px; letter-spacing: 2px; }
+    .book-quote { border-left: 3px solid var(--yellow); padding-left: 20px; font-style: italic; color: #666; margin-bottom: 20px; }
+    .read-more { display: block; margin-top: 20px; color: var(--dark); font-weight: bold; text-decoration: none; }
+    .buy-btn { margin-top: 30px; background: transparent; border: 2px solid var(--dark); padding: 15px 30px; font-weight: bold; transition: 0.3s; }
+    .buy-btn:hover { background: var(--dark); color: var(--white); }
+</style>
+
+
+
+    <!-- Halaman Kritik/Saran -->
+    <section id="kontak">
+        <div class="form-container">
+            <h2>Kritik, Saran, & Pesan</h2>
+            <form id="kontakForm" onsubmit="kirimPesan(event)">
+    <input type="text" id="nama" placeholder="Nama Anda" required>
+    <input type="email" id="email" placeholder="Email Anda" required>
+    <textarea id="pesan" rows="5" placeholder="Tulis pesanmu di sini..." required></textarea>
+    <button type="submit">Kirim Pesan</button>
+</form>
+
+
+            <div style="margin-top: 30px;">
+                <h3>Hubungi Saya:</h3>
+                <p>Email: ahdiyathalid22@gmail.com</p>
+                <p>Instagram: @tubi.better</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 To Be Better. Dibuat dengan sepenuh hati</p>
+        <p>Ditemani secangkir kopi.</p>
+    </footer>
+    
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+  import { getFirestore, collection, getDocs, addDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+
+  const app = initializeApp({
+    apiKey: "AIzaSyC54nH4hocxGmgKOckkXUno5pYtHTbBvuE",
+    authDomain: "tobebetter-d7fdf.firebaseapp.com",
+    projectId: "tobebetter-d7fdf",
+    storageBucket: "tobebetter-d7fdf.firebasestorage.app",
+    messagingSenderId: "430913833182",
+    appId: "1:430913833182:web:9cf92970146cb38188da4f",
+    measurementId: "G-06CWKGWWPQ"
+  });
+  const db = getFirestore(app);
+
+  // 1. MENU
+  window.toggleMenu = () => {
+    document.getElementById('navLinks').classList.toggle('active');
+    document.querySelector('.menu-toggle').classList.toggle('active');
+  };
+
+  // 2. KARTU MOTIVASI
+  const card = document.getElementById('quoteCard');
+  let isFlipped = false;
+  card.addEventListener('click', async () => {
+    if (!isFlipped) {
+      const snap = await getDocs(collection(db, "motivasi"));
+      const list = [];
+      snap.forEach(d => list.push(d.data()));
+      if (list.length > 0) {
+        const rand = list[Math.floor(Math.random() * list.length)];
+        
+        // Memastikan teks dan sumber muncul dengan aman
+        document.getElementById('teks').innerText = `"${rand.teks || "..."}"`;
+        
+        // Jika sumber tidak ada, tampilkan "-" atau string kosong
+        document.getElementById('sumber').innerText = rand.sumber ? `— ${rand.sumber}` : ""; 
+        
+        card.style.transform = "rotateY(180deg)";
+        isFlipped = true;
+      }
+    } else {
+      card.style.transform = "rotateY(0deg)";
+      isFlipped = false;
+    }
+  });
+
+
+  // 3. ARTIKEL
+  const snapArt = await getDocs(collection(db, "artikel"));
+  const cont = document.getElementById('materi-container');
+  cont.innerHTML = '';
+  snapArt.forEach(d => {
+    const data = d.data();
+    // Perhatikan penambahan style: word-wrap: break-word;
+    cont.innerHTML += `
+      <div style="padding:20px; background:#f4f4f4; margin-bottom:10px; word-wrap: break-word; overflow-wrap: break-word;">
+        <h3>${data.judul}</h3>
+        <p>${data.isi}</p>
+      </div>`;
+  });
+
+
+  // 4. KONTAK
+  window.kirimPesan = async (e) => {
+    e.preventDefault();
+    await addDoc(collection(db, "kontak"), { 
+      nama: document.getElementById('nama').value, 
+      email: document.getElementById('email').value, 
+      pesan: document.getElementById('pesan').value 
+    });
+    alert("Pesan terkirim!");
+    document.getElementById('kontakForm').reset();
+  };
+
+        function toggleMenu() {
+    const navLinks = document.getElementById('navLinks');
+    const toggle = document.querySelector('.menu-toggle');
+    navLinks.classList.toggle('active');
+    toggle.classList.toggle('active'); // Menambah animasi pada garis hamburger
+};
+
+
+</script>
+
+</body>
+</html>
